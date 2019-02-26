@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,7 +17,9 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LeftFragment extends Fragment {
+public class LeftFragment extends Fragment implements ColorViewHolder.OnColorClickListener {
+
+//    private OnFragmentInteractionListener mListener;
 
     public LeftFragment() {
         // Required empty public constructor
@@ -32,8 +36,10 @@ public class LeftFragment extends Fragment {
 //    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState
+    ) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_left, container, false);
 
@@ -50,17 +56,32 @@ public class LeftFragment extends Fragment {
         mColor.add(new Color(getResources().getColor(R.color.colorIndigo), getResources().getString(R.string.indigo)));
         mColor.add(new Color(getResources().getColor(R.color.colorViolet), getResources().getString(R.string.violet)));
 
-        RecyclerView mRecyclerView = view.findViewById(R.id.color_list_view);
+        RecyclerView               mRecyclerView  = view.findViewById(R.id.color_list_view);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        RecyclerView.Adapter mAdapter = new ColorAdapter(mColor, getActivity());
+        RecyclerView.Adapter       mAdapter       = new ColorAdapter(mColor, getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
 
         return view;
     }
 
-//    public interface OnColorChooseListener {
-//        void onColorChoosen(int color);
+    @Override
+    public void onColorClicked(int position) {
+        Toast.makeText(getActivity(), "Clicked: " + position, Toast.LENGTH_SHORT).show();
+        Log.d("LeftFragment:", "Clicked item: " + position);
+    }
+
+//    public void OnColorClicked(int itemColor, String intemText) {
+//
+//        if (mListener != null) {
+//            mListener.OnFragmentInteraction(itemColor, intemText);
+//        }
+//
+//    }
+//
+//    public interface OnFragmentInteractionListener {
+//        public void OnFragmentInteraction(int itemColor, String itemText);
 //    }
 
 }
