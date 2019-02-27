@@ -41,6 +41,6 @@ public class ColorViewHolder extends RecyclerView.ViewHolder {
     }
 
     public interface OnColorClickListener {
-        void onColorClicked(int position);
+        void onColorClicked(Color position);
     }
 }

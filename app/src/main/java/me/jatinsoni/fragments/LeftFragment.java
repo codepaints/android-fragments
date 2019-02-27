@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LeftFragment extends Fragment implements ColorViewHolder.OnColorClickListener {
+public class LeftFragment extends Fragment {
 
 //    private OnFragmentInteractionListener mListener;
 
@@ -65,23 +65,5 @@ public class LeftFragment extends Fragment implements ColorViewHolder.OnColorCli
 
         return view;
     }
-
-    @Override
-    public void onColorClicked(int position) {
-        Toast.makeText(getActivity(), "Clicked: " + position, Toast.LENGTH_SHORT).show();
-        Log.d("LeftFragment:", "Clicked item: " + position);
-    }
-
-//    public void OnColorClicked(int itemColor, String intemText) {
-//
-//        if (mListener != null) {
-//            mListener.OnFragmentInteraction(itemColor, intemText);
-//        }
-//
-//    }
-//
-//    public interface OnFragmentInteractionListener {
-//        public void OnFragmentInteraction(int itemColor, String itemText);
-//    }
 
 }
