@@ -13,4 +13,6 @@
     <color name="colorYellow">#FFEB3B</color>
     <color name="colorOrange">#FF9800</color>
     <color name="colorRed">#FF5722</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_list_bg">#666666</color>
 </resources>

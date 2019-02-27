@@ -37,6 +37,8 @@ public class RightFragment extends Fragment {
         rightColorLabel = rootView.findViewById(R.id.right_color_text);
         rightBackgroundColor = rootView.findViewById(R.id.right_color_block);
 
+        rightColorLabel.setVisibility(View.GONE);
+
         return rootView;
 
     }
@@ -44,6 +46,7 @@ public class RightFragment extends Fragment {
     public void setColor(Color color) {
         rightColorLabel.setText(color.getmLabel());
         rightBackgroundColor.setBackgroundColor(color.getmColor());
+        rightColorLabel.setVisibility(View.VISIBLE);
     }
 
 }
